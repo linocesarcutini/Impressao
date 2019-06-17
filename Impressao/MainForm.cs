@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using Impressao;
 using System.Windows.Forms;
 using Autodesk.AutoCAD.Interop;
 using System.Collections.Generic;
@@ -70,7 +69,7 @@ namespace Impressao
 		    List<string> arq = new List<string>();
 		    foreach (var element in arquivos)
 		    {
-		    	if (Path.GetExtension(element) == ".dwg")
+		    	if (Path.GetExtension(element).ToLower() == ".dwg")
                 {
 					arq.Add(element);
                 }
@@ -160,9 +159,15 @@ namespace Impressao
 							MessageBox.Show("Não foi possível enviar o comando de ativar o Layer cotas (imprimeCotas == \"S\")!");
 						}
 					}
-	
-					// For saiving PDF with or without description
-					string fileName = Path.GetFileName(element);
+
+                    // For saiving PDF with or without description
+                        // Criando a pasta ImpressaoEmPDF caso não exista
+                    if (!Directory.Exists("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/"))
+                    {
+                        Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/");
+                    }
+
+                    string fileName = Path.GetFileName(element);
 					string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
 					                                     fileName.Substring(0, fileName.Length - 4);
 					string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
