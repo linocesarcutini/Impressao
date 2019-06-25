@@ -280,7 +280,7 @@ namespace Impressao
 			Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();
 		}
 
-		private void CbImpressoraSelectedValueChanged(object sender, EventArgs e)
+		private void cbImpressoraSelectedValueChanged(object sender, EventArgs e)
 		{
 			switch (cbImpressora.Text)
 			{
@@ -290,7 +290,32 @@ namespace Impressao
 				case "Plotter-A1":
 					cbTamanhoFormato.SelectedItem = "A1";
 					break;
-			}
+                case "Kyocera-A4":
+                    cbTamanhoFormato.SelectedItem = "A4";
+                    break;
+                case "Kyocera-A3":
+                    cbTamanhoFormato.SelectedItem = "A3";
+                    break;
+            }
 		}
-	}
+
+        private void cbTamanhoFormatoSelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (cbTamanhoFormato.Text)
+            {
+                case "A2":
+                    cbImpressora.SelectedItem = "Plotter-A2";
+                    break;
+                case "A1":
+                    cbImpressora.SelectedItem = "Plotter-A1";
+                    break;
+                case "A4":
+                    cbImpressora.SelectedItem = "Kyocera-A4";
+                    break;
+                case "A3":
+                    cbImpressora.SelectedItem = "Kyocera-A3";
+                    break;
+            }
+        }
+    }
 }

@@ -191,10 +191,11 @@ namespace Impressao
 			this.cbTamanhoFormato.Name = "cbTamanhoFormato";
 			this.cbTamanhoFormato.Size = new System.Drawing.Size(85, 21);
 			this.cbTamanhoFormato.TabIndex = 11;
-			// 
-			// cbEspessuraLayer
-			// 
-			this.cbEspessuraLayer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbTamanhoFormato.SelectedValueChanged += new System.EventHandler(this.cbTamanhoFormatoSelectedValueChanged);
+            // 
+            // cbEspessuraLayer
+            // 
+            this.cbEspessuraLayer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.cbEspessuraLayer.DropDownHeight = 100;
 			this.cbEspessuraLayer.DropDownWidth = 60;
 			this.cbEspessuraLayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,12 +229,12 @@ namespace Impressao
 			"Plotter-A1",
 			"PDF",
 			"Kyocera-A4",
-            "Kyocera-A4"});
+            "Kyocera-A3"});
             this.cbImpressora.Location = new System.Drawing.Point(134, 100);
 			this.cbImpressora.Name = "cbImpressora";
 			this.cbImpressora.Size = new System.Drawing.Size(85, 21);
 			this.cbImpressora.TabIndex = 13;
-			this.cbImpressora.SelectedValueChanged += new System.EventHandler(this.CbImpressoraSelectedValueChanged);
+			this.cbImpressora.SelectedValueChanged += new System.EventHandler(this.cbImpressoraSelectedValueChanged);
 			// 
 			// cbDescricaoPDF
 			// 
