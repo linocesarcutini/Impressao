@@ -227,8 +227,9 @@ namespace Impressao
 			"Plotter-A2",
 			"Plotter-A1",
 			"PDF",
-			"Kyocera"});
-			this.cbImpressora.Location = new System.Drawing.Point(134, 100);
+			"Kyocera-A4",
+            "Kyocera-A4"});
+            this.cbImpressora.Location = new System.Drawing.Point(134, 100);
 			this.cbImpressora.Name = "cbImpressora";
 			this.cbImpressora.Size = new System.Drawing.Size(85, 21);
 			this.cbImpressora.TabIndex = 13;

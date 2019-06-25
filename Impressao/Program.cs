@@ -21,7 +21,7 @@ namespace Impressao
 
 			for (int i = 0; i < args.Length; i++)
 			{
-				if (Path.GetExtension(args[i]) == ".dwg")
+				if (Path.GetExtension(args[i]).ToLower() == ".dwg")
 				{
 					arq.Add(args[i]);
 				}

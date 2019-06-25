@@ -65,8 +65,10 @@ namespace Impressao
 					return Variables.tipoImpressora["Plotter-A1"];
 				case "PDF":
 					return Variables.tipoImpressora["PDF"];
-				default:
-					return Variables.tipoImpressora["Kyocera"];
+                case "Kyocera-A4":
+                    return Variables.tipoImpressora["Kyocera-A4"];
+                default:
+					return Variables.tipoImpressora["Kyocera-A3"];
 			}
 		}
 
