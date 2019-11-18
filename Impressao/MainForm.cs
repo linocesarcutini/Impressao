@@ -177,39 +177,81 @@ namespace Impressao
 					{
 						if (Variables.description == "Sim")
 						{
-							try
-							{
-								doc.SendCommand("(command \"-plot\"" +
-									" \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
-									Utils.TamanhoPrancha() +
-									" \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
-									Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
-									"\"" + newFullNameWithoutExtension + "\"" +
-									" \"n\" \"y\")\n"
-								);
-							}
-							catch (Exception)
-							{
-								MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
-							}
+                            if (Variables.tamanhoFormato == "A4-P")
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutExtension + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutExtension + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
 						}
 						else
-						{
-							try
-							{
-								doc.SendCommand("(command \"-plot\"" +
-									" \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
-									Utils.TamanhoPrancha() +
-									" \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
-									Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
-									"\"" + newFullNameWithoutDescription + "\"" +
-									" \"n\" \"y\")\n"
-								);
-							}
-							catch (Exception)
-							{
-								MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
-							}
+                        {
+                            if (Variables.tamanhoFormato == "A4-P")
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"p\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutDescription + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutDescription + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
 						}
 					}
 					else
@@ -290,8 +332,11 @@ namespace Impressao
 				case "Plotter-A1":
 					cbTamanhoFormato.SelectedItem = "A1";
 					break;
-                case "Kyocera-A4":
-                    cbTamanhoFormato.SelectedItem = "A4";
+                case "Kyocera-A4-P":
+                    cbTamanhoFormato.SelectedItem = "A4-P";
+                    break;
+                case "Kyocera-A4-L":
+                    cbTamanhoFormato.SelectedItem = "A4-L";
                     break;
                 case "Kyocera-A3":
                     cbTamanhoFormato.SelectedItem = "A3";
@@ -309,8 +354,11 @@ namespace Impressao
                 case "A1":
                     cbImpressora.SelectedItem = "Plotter-A1";
                     break;
-                case "A4":
-                    cbImpressora.SelectedItem = "Kyocera-A4";
+                case "Kyocera-A4-P":
+                    cbTamanhoFormato.SelectedItem = "A4-P";
+                    break;
+                case "Kyocera-A4-L":
+                    cbTamanhoFormato.SelectedItem = "A4-L";
                     break;
                 case "A3":
                     cbImpressora.SelectedItem = "Kyocera-A3";

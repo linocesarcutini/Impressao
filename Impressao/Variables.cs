@@ -18,8 +18,9 @@ namespace Impressao
 			{ "A1", "\"iso full bleed A1 (841.00 x 594.00 MM)\"" },
 			{ "A2", "\"iso full bleed A2 (594.00 x 420.00 MM)\"" },
 			{ "A3", "\"iso full bleed A3 (420.00 x 297.00 MM)\"" },
-			{ "A4", "\"iso full bleed A4 (297.00 x 210.00 MM)\"" }
-		};
+			{ "A4-L", "\"iso full bleed A4 (297.00 x 210.00 MM)\"" },
+            { "A4-P", "\"iso full bleed A4 (210.00 x 297.00 MM)\"" }
+        };
 
 		public static Dictionary<string, string> pranchaPlo = new Dictionary<string, string>()
 		{
@@ -29,7 +30,9 @@ namespace Impressao
 
 		public static Dictionary<string, string> pranchaKy = new Dictionary<string, string>()
 		{
-			{ "A3", "\"A3\"" }, { "A4", "\"A4\"" }
+			{ "A3", "\"A3\"" },
+            { "A4-L", "\"A4-L\"" },
+            { "A4-P", "\"A4-P\"" }
 		};
 
 		public static Dictionary<string, string> tipoImpressora = new Dictionary<string, string>()

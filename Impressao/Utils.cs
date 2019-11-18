@@ -21,24 +21,20 @@ namespace Impressao
 						return Variables.pranchaPDF["A2"];
 					case "A3":
 						return Variables.pranchaPDF["A3"];
-					case "A4":
-						return Variables.pranchaPDF["A4"];
+					case "A4-L":
+						return Variables.pranchaPDF["A4-L"];
+                    case "A4-P":
+                        return Variables.pranchaPDF["A4-P"];
 				}
 			}
 			else if (Variables.impressora == "Plotter-A2" || Variables.impressora == "Plotter-A1")
 			{
 			    switch (Variables.tamanhoFormato)
 				{
-					case "A0":
-						return Variables.pranchaPlo["A0"];
 					case "A1":
 						return Variables.pranchaPlo["A1"];
 					case "A2":
 						return Variables.pranchaPlo["A2"];
-					case "A3":
-						return Variables.pranchaPlo["A3"];
-					case "A4":
-						return Variables.pranchaPlo["A4"];
 				}
 			}
 			else
@@ -47,8 +43,10 @@ namespace Impressao
 				{
 					case "A3":
 						return Variables.pranchaKy["A3"];
-					case "A4":
-						return Variables.pranchaKy["A4"];
+					case "A4-L":
+						return Variables.pranchaKy["A4-L"];
+                    case "A4-P":
+                        return Variables.pranchaKy["A4-P"];
 				}
 			}
 
@@ -65,8 +63,10 @@ namespace Impressao
 					return Variables.tipoImpressora["Plotter-A1"];
 				case "PDF":
 					return Variables.tipoImpressora["PDF"];
-                case "Kyocera-A4":
-                    return Variables.tipoImpressora["Kyocera-A4"];
+                case "Kyocera-A4-L":
+                    return Variables.tipoImpressora["Kyocera-A4-L"];
+                case "Kyocera-A4-P":
+                    return Variables.tipoImpressora["Kyocera-A4-P"];
                 default:
 					return Variables.tipoImpressora["Kyocera-A3"];
 			}
