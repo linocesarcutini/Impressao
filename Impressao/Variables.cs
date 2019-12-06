@@ -39,7 +39,7 @@ namespace Impressao
 		{
 			{ "Plotter-A2", "\"Canon_iPF670-A2\"" },
 			{ "Plotter-A1", "\"Canon_iPF670-A1\"" },
-			{ "PDF", "\"dwg to pdf\"" },
+			{ "PDF", "\"DWG To PDF\"" },
 			{ "Kyocera-A4", "\"Kyocera-A4\"" },
             { "Kyocera-A3", "\"Kyocera-A3\"" }
         };
