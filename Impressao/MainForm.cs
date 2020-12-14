@@ -121,13 +121,13 @@ namespace Impressao
 				}
 	 
 				int contDesenho = 1;
-	
+
 				foreach (var element in Variables.arquivos)
 				{
+					System.Threading.Thread.Sleep(1500);
+
 					AcadDocument doc = acApp.Documents.Open(element);
 					AcadModelSpace modelSpace = doc.ModelSpace;
-
-                    System.Threading.Thread.Sleep(900);
 
                     if (Variables.imprimeCotas == "Não")
 					{

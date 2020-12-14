@@ -46,13 +46,13 @@ namespace Impressao
 
 		public static Dictionary<string, string> espessura = new Dictionary<string, string>()
 		{
-			{ "100","\"screening 100%.ctb\"" },
-			{ "87.5","\"screening 87.5%.ctb\"" },
-			{ "75","\"screening 75%.ctb\"" },
-			{ "62.5","\"screening 62.5%.ctb\"" },
-			{ "50","\"screening 50%.ctb\"" },
-			{ "37.5","\"screening 37.5%.ctb\"" },
-			{ "25","\"screening 25%.ctb\"" }
+			{ "100","\"Engetower 100%.ctb\"" },
+			{ "87.5","\"Engetower 87.5%.ctb\"" },
+			{ "75","\"Engetower 75%.ctb\"" },
+			{ "62.5","\"Engetower 62.5%.ctb\"" },
+			{ "50","\"Engetower 50%.ctb\"" },
+			{ "37.5","\"Engetower 37.5%.ctb\"" },
+			{ "25","\"Engetower 25%.ctb\"" }
 		};
 	}
 }
