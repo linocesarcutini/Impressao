@@ -124,7 +124,7 @@ namespace Impressao
 
 				foreach (var element in Variables.arquivos)
 				{
-					System.Threading.Thread.Sleep(1500);
+					System.Threading.Thread.Sleep(2500);
 
 					AcadDocument doc = acApp.Documents.Open(element);
 					AcadModelSpace modelSpace = doc.ModelSpace;
