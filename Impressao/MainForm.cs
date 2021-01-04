@@ -126,7 +126,8 @@ namespace Impressao
 				{
 					System.Threading.Thread.Sleep(2500);
 
-					AcadDocument doc = acApp.Documents.Open(element);
+					AcadDocument doc = null;
+					doc = acApp.Documents.Open(element);
 					AcadModelSpace modelSpace = doc.ModelSpace;
 
                     if (Variables.imprimeCotas == "Não")
