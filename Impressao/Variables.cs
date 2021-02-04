@@ -38,7 +38,6 @@ namespace Impressao
 		{
 			{ "Plotter-A2", "\"Canon_iPF670-A2\"" },
 			{ "Plotter-A1", "\"Canon_iPF670-A1\"" },
-			{ "PDF", "\"DWG To PDF\"" },
 			{ "Xerox", "\"Xerox\"" }
         };
 
