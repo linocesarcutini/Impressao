@@ -185,7 +185,6 @@ namespace Impressao
             this.cbImpressora.Items.AddRange(new object[] {
             "Plotter-A2",
             "Plotter-A1",
-            "PDF",
             "Kyocera-A4-L",
             "Kyocera-A4-P",
             "Kyocera-A3"});
