@@ -10,7 +10,6 @@ namespace Impressao
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
@@ -18,7 +17,6 @@ namespace Impressao
 		private System.Windows.Forms.ComboBox cbTamanhoFormato;
 		private System.Windows.Forms.ComboBox cbEspessuraLayer;
 		private System.Windows.Forms.ComboBox cbImpressora;
-		private System.Windows.Forms.ComboBox cbDescricaoPDF;
 		private System.Windows.Forms.ComboBox cbSalvarDesenhos;
 		
 		/// <summary>
@@ -46,7 +44,6 @@ namespace Impressao
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,7 +51,6 @@ namespace Impressao
             this.cbTamanhoFormato = new System.Windows.Forms.ComboBox();
             this.cbEspessuraLayer = new System.Windows.Forms.ComboBox();
             this.cbImpressora = new System.Windows.Forms.ComboBox();
-            this.cbDescricaoPDF = new System.Windows.Forms.ComboBox();
             this.cbSalvarDesenhos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -84,15 +80,6 @@ namespace Impressao
             this.label4.Size = new System.Drawing.Size(118, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Impressora";
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 16);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Descrição nos PDFs?";
             // 
             // label6
             // 
@@ -208,23 +195,6 @@ namespace Impressao
             this.cbImpressora.TabIndex = 13;
             this.cbImpressora.SelectedValueChanged += new System.EventHandler(this.cbImpressoraSelectedValueChanged);
             // 
-            // cbDescricaoPDF
-            // 
-            this.cbDescricaoPDF.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbDescricaoPDF.DropDownHeight = 100;
-            this.cbDescricaoPDF.DropDownWidth = 60;
-            this.cbDescricaoPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDescricaoPDF.FormattingEnabled = true;
-            this.cbDescricaoPDF.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.cbDescricaoPDF.IntegralHeight = false;
-            this.cbDescricaoPDF.Items.AddRange(new object[] {
-            "Sim",
-            "Não"});
-            this.cbDescricaoPDF.Location = new System.Drawing.Point(134, 130);
-            this.cbDescricaoPDF.Name = "cbDescricaoPDF";
-            this.cbDescricaoPDF.Size = new System.Drawing.Size(85, 21);
-            this.cbDescricaoPDF.TabIndex = 14;
-            // 
             // cbSalvarDesenhos
             // 
             this.cbSalvarDesenhos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -250,7 +220,6 @@ namespace Impressao
             this.CancelButton = this.button3;
             this.ClientSize = new System.Drawing.Size(230, 274);
             this.Controls.Add(this.cbSalvarDesenhos);
-            this.Controls.Add(this.cbDescricaoPDF);
             this.Controls.Add(this.cbImpressora);
             this.Controls.Add(this.cbEspessuraLayer);
             this.Controls.Add(this.cbTamanhoFormato);
@@ -258,7 +227,6 @@ namespace Impressao
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -16,13 +16,11 @@ namespace Impressao
 			
 			LeituraConfig leitura = new LeituraConfig();
 			
-			cbDescricaoPDF.SelectedItem = leitura.descricaoNoPDF;
 			cbEspessuraLayer.SelectedItem = leitura.espessuraLayer;
 			cbImpressora.SelectedItem = leitura.impressora;
 			cbSalvarDesenhos.SelectedItem = leitura.salvarDesenhos;
 			cbTamanhoFormato.SelectedItem = leitura.tamanhoFormato;
 
-			Variables.description = leitura.descricaoNoPDF;
 			Variables.espessuraLayer = leitura.espessuraLayer;
 			Variables.impressora = leitura.impressora;
 			Variables.salvarDesenhos = leitura.salvarDesenhos;
@@ -143,84 +141,7 @@ namespace Impressao
 	
 					if (Variables.impressora == "PDF")
 					{
-						if (Variables.description == "Sim")
-						{
-                            if (Variables.tamanhoFormato == "A4-P")
-                            {
-                                try
-                                {
-                                    doc.SendCommand("(command \"-plot\"" +
-                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
-                                        Utils.TamanhoPrancha() +
-                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
-                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
-                                        "\"" + newFullNameWithoutExtension + "\"" +
-                                        " \"n\" \"y\")\n"
-                                    );
-                                }
-                                catch (Exception)
-                                {
-                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
-                                }
-                            }
-                            else
-                            {
-                                try
-                                {
-                                    doc.SendCommand("(command \"-plot\"" +
-                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
-                                        Utils.TamanhoPrancha() +
-                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
-                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
-                                        "\"" + newFullNameWithoutExtension + "\"" +
-                                        " \"n\" \"y\")\n"
-                                    );
-                                }
-                                catch (Exception)
-                                {
-                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
-                                }
-                            }
-						}
-						else
-                        {
-                            if (Variables.tamanhoFormato == "A4-P")
-                            {
-                                try
-                                {
-                                    doc.SendCommand("(command \"-plot\"" +
-                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
-                                        Utils.TamanhoPrancha() +
-                                        " \"m\" \"p\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
-                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
-                                        "\"" + newFullNameWithoutDescription + "\"" +
-                                        " \"n\" \"y\")\n"
-                                    );
-                                }
-                                catch (Exception)
-                                {
-                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
-                                }
-                            }
-                            else
-                            {
-                                try
-                                {
-                                    doc.SendCommand("(command \"-plot\"" +
-                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
-                                        Utils.TamanhoPrancha() +
-                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
-                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
-                                        "\"" + newFullNameWithoutDescription + "\"" +
-                                        " \"n\" \"y\")\n"
-                                    );
-                                }
-                                catch (Exception)
-                                {
-                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
-                                }
-                            }
-						}
+						MessageBox.Show("PDF feito com sucesso");
 					}
 					else
 					{
@@ -283,7 +204,6 @@ namespace Impressao
 		
 		private void SetVariables()
 		{
-			Variables.description = this.cbDescricaoPDF.SelectedItem.ToString();
 			Variables.espessuraLayer = this.cbEspessuraLayer.SelectedItem.ToString();
 			Variables.impressora = this.cbImpressora.SelectedItem.ToString();
 			Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();

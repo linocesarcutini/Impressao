@@ -6,7 +6,7 @@ namespace Impressao
 	public static class Variables
 	{
 		public static string  tamanhoFormato, espessuraLayer, impressora,
-			diretorioPDF, salvarDesenhos, description;
+			diretorioPDF, salvarDesenhos;
 
 		public static bool activation;
 
