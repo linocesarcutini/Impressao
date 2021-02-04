@@ -139,6 +139,12 @@ namespace Impressao
 					string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
 					                                       fileName.Split(new string[] { "..." }, StringSplitOptions.None)[0];
 	
+					if (Variables.impressora == "PDF")
+					{
+						MessageBox.Show("PDF feito com sucesso");
+					}
+					else
+					{
 						try
 						{
 							string teste = Utils.Imp(Variables.impressora);
@@ -153,6 +159,7 @@ namespace Impressao
 						{
 							MessageBox.Show("Não foi possível enviar o comando de plotar na Impressora (PL/KM)!");
 						}
+					}
 	
 					if (Variables.salvarDesenhos == "Sim")
 					{
