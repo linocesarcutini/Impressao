@@ -252,14 +252,11 @@ namespace Impressao
                 case "A1":
                     cbImpressora.SelectedItem = "Plotter-A1";
                     break;
-                case "Kyocera-A4-P":
-                    cbTamanhoFormato.SelectedItem = "A4-P";
+                case "A4-P":
+                    cbImpressora.SelectedItem = "Xerox";
                     break;
-                case "Kyocera-A4-L":
-                    cbTamanhoFormato.SelectedItem = "A4-L";
-                    break;
-                case "A3":
-                    cbImpressora.SelectedItem = "Kyocera-A3";
+                case "A4-L":
+                    cbImpressora.SelectedItem = "Xerox";
                     break;
             }
         }
