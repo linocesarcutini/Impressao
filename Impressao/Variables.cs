@@ -28,11 +28,10 @@ namespace Impressao
 			{ "A3", "\"ISO A3\"" }, { "A4", "\"ISO A4\"" }
 		};
 
-		public static Dictionary<string, string> pranchaKy = new Dictionary<string, string>()
+		public static Dictionary<string, string> pranchaXerox = new Dictionary<string, string>()
 		{
-			{ "A3", "\"A3\"" },
-            { "A4-L", "\"A4-L\"" },
-            { "A4-P", "\"A4-P\"" }
+            { "A4-L", "A4-L" },
+            { "A4-P", "A4-P" }
 		};
 
 		public static Dictionary<string, string> tipoImpressora = new Dictionary<string, string>()
@@ -40,8 +39,7 @@ namespace Impressao
 			{ "Plotter-A2", "\"Canon_iPF670-A2\"" },
 			{ "Plotter-A1", "\"Canon_iPF670-A1\"" },
 			{ "PDF", "\"DWG To PDF\"" },
-			{ "Kyocera-A4", "\"Kyocera-A4\"" },
-            { "Kyocera-A3", "\"Kyocera-A3\"" }
+			{ "Xerox", "\"Xerox\"" }
         };
 
 		public static Dictionary<string, string> espessura = new Dictionary<string, string>()

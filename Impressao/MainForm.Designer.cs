@@ -186,9 +186,7 @@ namespace Impressao
             "Plotter-A2",
             "Plotter-A1",
             "PDF",
-            "Kyocera-A4-L",
-            "Kyocera-A4-P",
-            "Kyocera-A3"});
+            "Xerox"});
             this.cbImpressora.Location = new System.Drawing.Point(134, 100);
             this.cbImpressora.Name = "cbImpressora";
             this.cbImpressora.Size = new System.Drawing.Size(85, 21);

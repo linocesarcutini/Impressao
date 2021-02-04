@@ -41,12 +41,10 @@ namespace Impressao
 			{
 			    switch (Variables.tamanhoFormato)
 				{
-					case "A3":
-						return Variables.pranchaKy["A3"];
 					case "A4-L":
-						return Variables.pranchaKy["A4-L"];
-                    case "A4-P":
-                        return Variables.pranchaKy["A4-P"];
+						return Variables.pranchaXerox["A4-L"];
+					case "A4-P":
+						return Variables.pranchaXerox["A4-P"];
 				}
 			}
 
@@ -63,12 +61,8 @@ namespace Impressao
 					return Variables.tipoImpressora["Plotter-A1"];
 				case "PDF":
 					return Variables.tipoImpressora["PDF"];
-                case "Kyocera-A4-L":
-                    return Variables.tipoImpressora["Kyocera-A4-L"];
-                case "Kyocera-A4-P":
-                    return Variables.tipoImpressora["Kyocera-A4-P"];
                 default:
-					return Variables.tipoImpressora["Kyocera-A3"];
+					return Variables.tipoImpressora["Xerox"];
 			}
 		}
 
