@@ -149,22 +149,33 @@ namespace Impressao
                         {
                             string impressora = Utils.Imp(Variables.impressora);
                             string TamanhoPrancha = Utils.TamanhoPrancha();
-                            string formato,
-                                Folha = "\"A4\"";
+                            string formato, Folha;
 
-                            if (TamanhoPrancha == "A4-L")
+                            switch (TamanhoPrancha)
                             {
-                                formato = "\"l\"";
-                            }
-                            else
-                            {
-                                formato = "\"p\"";
-                            }
+                                case "A4-L":
+                                    Folha = "\"A4\"";
+                                    formato = "\"l\"";
+                                    break;
 
+                                case "A4-P":
+                                    Folha = "\"A4\"";
+                                    formato = "\"p\"";
+                                    break;
+
+                                case "\"ISO A1\"":
+                                    Folha = "\"ISO A1\"";
+                                    formato = "\"l\"";
+                                    break;
+                                default:
+                                    Folha = "\"ISO A2\"";
+                                    formato = "\"l\"";
+                                    break;
+                            }
                             doc.SendCommand("(command \"-plot\"" +
                                 " \"Y\" \"model\" " + impressora + " " +
                                 Folha +
-                                " \"m\"" + formato + "\"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                " \"m\" " + formato + " \"n\" \"e\" \"f\" \"c\" \"y\" " +
                                 Utils.Screening(Variables.espessuraLayer) + " \"y\" \"a\" \"n\" \"n\" \"y\" princ)\n"
                             );
                         }
@@ -232,14 +243,8 @@ namespace Impressao
                 case "Plotter-A1":
                     cbTamanhoFormato.SelectedItem = "A1";
                     break;
-                case "Kyocera-A4-P":
-                    cbTamanhoFormato.SelectedItem = "A4-P";
-                    break;
-                case "Kyocera-A4-L":
+                case "Xerox":
                     cbTamanhoFormato.SelectedItem = "A4-L";
-                    break;
-                case "Kyocera-A3":
-                    cbTamanhoFormato.SelectedItem = "A3";
                     break;
             }
         }
