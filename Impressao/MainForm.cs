@@ -19,14 +19,12 @@ namespace Impressao
 			cbDescricaoPDF.SelectedItem = leitura.descricaoNoPDF;
 			cbEspessuraLayer.SelectedItem = leitura.espessuraLayer;
 			cbImpressora.SelectedItem = leitura.impressora;
-			cbImprimeCotas.SelectedItem = leitura.imprimeCotas;
 			cbSalvarDesenhos.SelectedItem = leitura.salvarDesenhos;
 			cbTamanhoFormato.SelectedItem = leitura.tamanhoFormato;
 
 			Variables.description = leitura.descricaoNoPDF;
 			Variables.espessuraLayer = leitura.espessuraLayer;
 			Variables.impressora = leitura.impressora;
-			Variables.imprimeCotas = leitura.imprimeCotas;
 			Variables.salvarDesenhos = leitura.salvarDesenhos;
 			Variables.tamanhoFormato = leitura.tamanhoFormato;
 		}
@@ -129,39 +127,6 @@ namespace Impressao
 					AcadDocument doc = null;
 					doc = acApp.Documents.Open(element);
 					AcadModelSpace modelSpace = doc.ModelSpace;
-
-                    if (Variables.imprimeCotas == "Não")
-					{
-						try
-						{
-							doc.SendCommand("(command \"-layer\"" +
-								" \"set\" \"0\"" +
-								" \"off\" \"cotas\"" +
-								" \"off\" \"l.d.\"" +
-								" \"\" princ)\n"
-							);
-						}
-						catch (Exception)
-						{
-							MessageBox.Show("Não foi possível enviar o comando de desativar o Layer cotas (imprimeCotas == \"N\")!");
-						}
-					}
-					else
-					{
-						try
-						{
-							doc.SendCommand("(command \"-layer\"" +
-								" \"set\" \"0\"" +
-								" \"on\" \"cotas\"" +
-								" \"on\" \"l.d.\"" +
-								" \"\" princ)\n"
-							);
-						}
-						catch (Exception)
-						{
-							MessageBox.Show("Não foi possível enviar o comando de ativar o Layer cotas (imprimeCotas == \"S\")!");
-						}
-					}
 
                     // For saiving PDF with or without description
                         // Criando a pasta ImpressaoEmPDF caso não exista
@@ -321,7 +286,6 @@ namespace Impressao
 			Variables.description = this.cbDescricaoPDF.SelectedItem.ToString();
 			Variables.espessuraLayer = this.cbEspessuraLayer.SelectedItem.ToString();
 			Variables.impressora = this.cbImpressora.SelectedItem.ToString();
-			Variables.imprimeCotas = this.cbImprimeCotas.SelectedItem.ToString();
 			Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();
 		}
 
