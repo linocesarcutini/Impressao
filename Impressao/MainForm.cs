@@ -27,7 +27,7 @@ namespace Impressao
             Variables.tamanhoFormato = leitura.tamanhoFormato;
         }
 
-        private void Button1Click(object sender, EventArgs e)
+        private void BtnSelectDesenhoClick(object sender, EventArgs e)
         {
             // Selecionar os arquivos a serem impressos
             OpenFileDialog openFileDialog1 = new OpenFileDialog()
@@ -49,7 +49,7 @@ namespace Impressao
             }
         }
 
-        private void Button1_DragOver(object sender, DragEventArgs e)
+        private void BtnSelectDesenho_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 e.Effect = DragDropEffects.Link;
@@ -57,7 +57,7 @@ namespace Impressao
                 e.Effect = DragDropEffects.None;
         }
 
-        private void Button1_DragDrop(object sender, DragEventArgs e)
+        private void BtnSelectDesenho_DragDrop(object sender, DragEventArgs e)
         {
             string[] arquivos = e.Data.GetData(DataFormats.FileDrop) as string[];
 
@@ -81,7 +81,7 @@ namespace Impressao
             Variables.arquivos = arq.ToArray();
         }
 
-        private void Button2Click(object sender, EventArgs e)
+        private void BtnImprimirClick(object sender, EventArgs e)
         {
             if (Variables.arquivos == null)
             {
@@ -213,7 +213,7 @@ namespace Impressao
             }
         }
 
-        private void Button3Click(object sender, EventArgs e)
+        private void BtnCancelarClick(object sender, EventArgs e)
         {
             SetVariables();
 
