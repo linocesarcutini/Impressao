@@ -38,6 +38,8 @@ namespace Impressao
                 RestoreDirectory = true
             };
 
+            Variables.arquivos = null;
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 // Guarda a lista dos caminhos completos dos arquivos selecionados
@@ -224,6 +226,7 @@ namespace Impressao
             Variables.espessuraLayer = this.cbEspessuraLayer.SelectedItem.ToString();
             Variables.impressora = this.cbImpressora.SelectedItem.ToString();
             Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();
+            Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
         }
 
         private void cbImpressoraSelectedValueChanged(object sender, EventArgs e)
