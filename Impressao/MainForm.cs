@@ -128,18 +128,19 @@ namespace Impressao
                     doc = acApp.Documents.Open(element);
                     AcadModelSpace modelSpace = doc.ModelSpace;
 
-                    // For saiving PDF with or without description
-                    // Criando a pasta ImpressaoEmPDF caso não exista
-                    if (!Directory.Exists("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/"))
-                    {
-                        Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/");
-                    }
 
-                    string fileName = Path.GetFileName(element);
-                    string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                                                         fileName.Substring(0, fileName.Length - 4);
-                    string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                                                           fileName.Split(new string[] { "..." }, StringSplitOptions.None)[0];
+                    //// For saiving PDF with or without description
+                    //// Criando a pasta ImpressaoEmPDF caso não exista
+                    //if (!Directory.Exists("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/"))
+                    //{
+                    //    Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/");
+                    //}
+
+                    //string fileName = Path.GetFileName(element);
+                    //string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
+                    //                                     fileName.Substring(0, fileName.Length - 4);
+                    //string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
+                    //                                       fileName.Split(new string[] { "..." }, StringSplitOptions.None)[0];
 
                         try
                         {
