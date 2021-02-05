@@ -29,21 +29,6 @@ namespace Impressao
 		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("Sim")]
-		public string DescriçãoNoPDF
-		{
-			get
-			{
-				return ((string)(this["DescriçãoNoPDF"]));
-			}
-			set
-			{
-				this["DescriçãoNoPDF"] = value;
-			}
-		}
-		
-		[global::System.Configuration.UserScopedSettingAttribute()]
-		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("100")]
 		public string EspessuraLayer
 		{
@@ -59,7 +44,7 @@ namespace Impressao
 		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("PDF")]
+		[global::System.Configuration.DefaultSettingValueAttribute("Xerox")]
 		public string Impressora
 		{
 			get
@@ -74,22 +59,8 @@ namespace Impressao
 		
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-		[global::System.Configuration.DefaultSettingValueAttribute("Sim")]
-		public string ImprimeCotas
-		{
-			get
-			{
-				return ((string)(this["ImprimeCotas"]));
-			}
-			set
-			{
-				this["ImprimeCotas"] = value;
-			}
-		}
-		
-		[global::System.Configuration.UserScopedSettingAttribute()]
-		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("Não")]
+
 		public string SalvarDesenhos
 		{
 			get
