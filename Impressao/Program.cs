@@ -17,6 +17,7 @@ namespace Impressao
         [STAThread]
         public static void Main(string[] args)
         {
+
             List<string> arq = new List<string>();
             bool format = true;
 
@@ -40,7 +41,7 @@ namespace Impressao
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
 
-            LeituraConfig escrita = new LeituraConfig(Variables.espessuraLayer, Variables.impressora, Variables.salvarDesenhos, Variables.tamanhoFormato);
+            LeituraConfig escrita = new LeituraConfig(Variables.description, Variables.espessuraLayer, Variables.impressora, Variables.imprimeCotas, Variables.salvarDesenhos, Variables.tamanhoFormato);
         }
     }
 }

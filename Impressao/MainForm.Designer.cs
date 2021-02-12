@@ -52,6 +52,10 @@ namespace Impressao
             this.cbEspessuraLayer = new System.Windows.Forms.ComboBox();
             this.cbImpressora = new System.Windows.Forms.ComboBox();
             this.cbSalvarDesenhos = new System.Windows.Forms.ComboBox();
+            this.cbImprimeCotas = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbDescricaoPDF = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -94,7 +98,7 @@ namespace Impressao
             // 
             this.BtnSelectDesenho.AllowDrop = true;
             this.BtnSelectDesenho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSelectDesenho.Location = new System.Drawing.Point(12, 157);
+            this.BtnSelectDesenho.Location = new System.Drawing.Point(13, 206);
             this.BtnSelectDesenho.Name = "BtnSelectDesenho";
             this.BtnSelectDesenho.Size = new System.Drawing.Size(207, 25);
             this.BtnSelectDesenho.TabIndex = 6;
@@ -108,7 +112,7 @@ namespace Impressao
             // 
             this.BtnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimir.Location = new System.Drawing.Point(119, 191);
+            this.BtnImprimir.Location = new System.Drawing.Point(119, 237);
             this.BtnImprimir.Name = "BtnImprimir";
             this.BtnImprimir.Size = new System.Drawing.Size(100, 25);
             this.BtnImprimir.TabIndex = 8;
@@ -121,7 +125,7 @@ namespace Impressao
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(12, 191);
+            this.BtnCancelar.Location = new System.Drawing.Point(12, 237);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(100, 25);
             this.BtnCancelar.TabIndex = 9;
@@ -183,6 +187,7 @@ namespace Impressao
             this.cbImpressora.Items.AddRange(new object[] {
             "Plotter-A2",
             "Plotter-A1",
+            "PDF",
             "Xerox"});
             this.cbImpressora.Location = new System.Drawing.Point(134, 82);
             this.cbImpressora.Name = "cbImpressora";
@@ -208,12 +213,56 @@ namespace Impressao
             this.cbSalvarDesenhos.Size = new System.Drawing.Size(85, 21);
             this.cbSalvarDesenhos.TabIndex = 15;
             // 
+            // cbImprimeCotas
+            // 
+            this.cbImprimeCotas.FormattingEnabled = true;
+            this.cbImprimeCotas.Items.AddRange(new object[] {
+            "Sim",
+            "Não"});
+            this.cbImprimeCotas.Location = new System.Drawing.Point(134, 138);
+            this.cbImprimeCotas.Name = "cbImprimeCotas";
+            this.cbImprimeCotas.Size = new System.Drawing.Size(85, 21);
+            this.cbImprimeCotas.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 16);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Imprimir cotas?";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Descrição nos PDFs?";
+            // 
+            // cbDescricaoPDF
+            // 
+            this.cbDescricaoPDF.FormattingEnabled = true;
+            this.cbDescricaoPDF.Items.AddRange(new object[] {
+            "Sim",
+            "Não"});
+            this.cbDescricaoPDF.Location = new System.Drawing.Point(134, 168);
+            this.cbDescricaoPDF.Name = "cbDescricaoPDF";
+            this.cbDescricaoPDF.Size = new System.Drawing.Size(85, 21);
+            this.cbDescricaoPDF.TabIndex = 18;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancelar;
-            this.ClientSize = new System.Drawing.Size(230, 228);
+            this.ClientSize = new System.Drawing.Size(230, 274);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbDescricaoPDF);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbImprimeCotas);
             this.Controls.Add(this.cbSalvarDesenhos);
             this.Controls.Add(this.cbImpressora);
             this.Controls.Add(this.cbEspessuraLayer);
@@ -236,5 +285,10 @@ namespace Impressao
             this.ResumeLayout(false);
 
 		}
-	}
+
+        private System.Windows.Forms.ComboBox cbImprimeCotas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbDescricaoPDF;
+    }
 }

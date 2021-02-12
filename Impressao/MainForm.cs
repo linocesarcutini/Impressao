@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using Autodesk.AutoCAD.Interop;
 using Autodesk.AutoCAD.Interop.Common;
 
+
 namespace Impressao
 {
     public partial class MainForm : Form
@@ -16,11 +17,13 @@ namespace Impressao
 
             LeituraConfig leitura = new LeituraConfig();
 
+            cbDescricaoPDF.SelectedItem = leitura.descricaoNoPDF;
             cbEspessuraLayer.SelectedItem = leitura.espessuraLayer;
             cbImpressora.SelectedItem = leitura.impressora;
             cbSalvarDesenhos.SelectedItem = leitura.salvarDesenhos;
             cbTamanhoFormato.SelectedItem = leitura.tamanhoFormato;
 
+            Variables.description = leitura.descricaoNoPDF;
             Variables.espessuraLayer = leitura.espessuraLayer;
             Variables.impressora = leitura.impressora;
             Variables.salvarDesenhos = leitura.salvarDesenhos;
@@ -129,24 +132,108 @@ namespace Impressao
                     AcadModelSpace modelSpace = doc.ModelSpace;
 
 
-                    //// For saiving PDF with or without description
-                    //// Criando a pasta ImpressaoEmPDF caso não exista
-                    //if (!Directory.Exists("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/"))
-                    //{
-                    //    Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/");
-                    //}
+                    // For saiving PDF with or without description
+                    // Criando a pasta ImpressaoEmPDF caso não exista
+                    if (!Directory.Exists("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/"))
+                    {
+                        Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/");
+                    }
 
-                    //string fileName = Path.GetFileName(element);
-                    //string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                    //                                     fileName.Substring(0, fileName.Length - 4);
-                    //string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                    //                                       fileName.Split(new string[] { "..." }, StringSplitOptions.None)[0];
+                    string fileName = Path.GetFileName(element);
+                    string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
+                                                         fileName.Substring(0, fileName.Length - 4);
+                    string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
+                                                           fileName.Split(new string[] { "..." }, StringSplitOptions.None)[0];
 
+                    if (Variables.impressora == "PDF")
+                    {
+                        if (Variables.description == "Sim")
+                        {
+                            if (Variables.tamanhoFormato == "A4-P")
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"p\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutExtension + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutExtension + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (Variables.tamanhoFormato == "A4-P")
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"p\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutDescription + "\"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    doc.SendCommand("(command \"-plot\"" +
+                                        " \"Y\" \"model\" " + Utils.Imp(Variables.impressora) + " " +
+                                        Utils.TamanhoPrancha() +
+                                        " \"m\" \"l\" \"n\" \"e\" \"f\" \"c\" \"y\" " +
+                                        Utils.Screening(Variables.espessuraLayer) + " \"y\" \"As displayed\" " +
+                                        "\"" + newFullNameWithoutDescription + " \"" +
+                                        " \"n\" \"y\")\n"
+                                    );
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
                         try
                         {
                             string impressora = Utils.Imp(Variables.impressora);
                             string TamanhoPrancha = Utils.TamanhoPrancha();
-                            string formato, Folha;
+                            string formato, Folha = "\"A4\"";
 
                             switch (TamanhoPrancha)
                             {
@@ -180,13 +267,24 @@ namespace Impressao
                         {
                             MessageBox.Show("Não foi possível enviar o comando de plotar na Impressora (PL/KM)!");
                         }
+                    }
 
                     if (Variables.salvarDesenhos == "Sim")
                     {
                         try
                         {
-                            doc.SendCommand("(command \"-layer\" \"on\" \"COTAS\" \"\" princ)\n");
-                            doc.SendCommand("(command \"-layer\" \"on\" \"L.D.\" \"\" princ)\n");
+                            foreach (AcadLayer item in doc.Layers)
+                            {
+                                string NomeItem = item.Name;
+                                if (NomeItem.ToLower() == "cotas")
+                                {
+                                            doc.SendCommand("(command \"-layer\" \"on\" \"COTAS\" \"\" princ)\n");
+                                }
+                                else if (NomeItem.ToLower() == "l.d.")
+                                {
+                                            doc.SendCommand("(command \"-layer\" \"on\" \"L.D.\" \"\" princ)\n");
+                                }
+                            }
                             doc.SendCommand("(command \"-layer\" \"set\" \"0\" \"\" princ)\n");
                             doc.SendCommand("(command \"-purge\" \"r\" \"*\" \"n\" princ)\n");
                             doc.SendCommand("(command \"-purge\" \"e\" princ)\n");
@@ -196,8 +294,9 @@ namespace Impressao
                             doc.Save();
                             doc.Close();
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
+                            MessageBox.Show(ex.Message);
                             MessageBox.Show("Não foi possível enviar os comandos de purge e ativar Layer!");
                         }
                     }
@@ -214,7 +313,7 @@ namespace Impressao
             SetVariables();
 
             Close();
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void MainForm_FormClosing(object sender, EventArgs e)
@@ -224,9 +323,11 @@ namespace Impressao
 
         private void SetVariables()
         {
+            Variables.description = this.cbDescricaoPDF.SelectedItem.ToString();
             Variables.espessuraLayer = this.cbEspessuraLayer.SelectedItem.ToString();
             Variables.impressora = this.cbImpressora.SelectedItem.ToString();
             Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();
+            Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
             Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
         }
 
@@ -264,5 +365,6 @@ namespace Impressao
                     break;
             }
         }
+
     }
 }

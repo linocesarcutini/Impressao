@@ -9,7 +9,25 @@ namespace Impressao
 	{
 		public static string TamanhoPrancha()
 		{
-			if (Variables.impressora == "Plotter-A2" || Variables.impressora == "Plotter-A1")
+			if (Variables.impressora == "PDF")
+			{
+				switch (Variables.tamanhoFormato)
+				{
+					case "A0":
+						return Variables.pranchaPDF["A0"];
+					case "A1":
+						return Variables.pranchaPDF["A1"];
+					case "A2":
+						return Variables.pranchaPDF["A2"];
+					case "A3":
+						return Variables.pranchaPDF["A3"];
+					case "A4-L":
+						return Variables.pranchaPDF["A4-L"];
+					case "A4-P":
+						return Variables.pranchaPDF["A4-P"];
+				}
+			}
+			else if (Variables.impressora == "Plotter-A2" || Variables.impressora == "Plotter-A1")
 			{
 			    switch (Variables.tamanhoFormato)
 				{
@@ -37,6 +55,8 @@ namespace Impressao
 		{
 			switch (impress)
 			{
+				case "PDF":
+					return Variables.tipoImpressora["PDF"];
 				case "Plotter-A2":
 					return Variables.tipoImpressora["Plotter-A2"];
 				case "Plotter-A1":
