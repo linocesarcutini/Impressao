@@ -20,12 +20,14 @@ namespace Impressao
             cbDescricaoPDF.SelectedItem = leitura.descricaoNoPDF;
             cbEspessuraLayer.SelectedItem = leitura.espessuraLayer;
             cbImpressora.SelectedItem = leitura.impressora;
+            cbImprimeCotas.SelectedItem = leitura.imprimeCotas;
             cbSalvarDesenhos.SelectedItem = leitura.salvarDesenhos;
             cbTamanhoFormato.SelectedItem = leitura.tamanhoFormato;
 
             Variables.description = leitura.descricaoNoPDF;
             Variables.espessuraLayer = leitura.espessuraLayer;
             Variables.impressora = leitura.impressora;
+            Variables.imprimeCotas = leitura.imprimeCotas;
             Variables.salvarDesenhos = leitura.salvarDesenhos;
             Variables.tamanhoFormato = leitura.tamanhoFormato;
         }
@@ -280,7 +282,7 @@ namespace Impressao
                                 {
                                             doc.SendCommand("(command \"-layer\" \"on\" \"COTAS\" \"\" princ)\n");
                                 }
-                                else if (NomeItem.ToLower() == "l.d.")
+                                if (NomeItem.ToLower() == "l.d.")
                                 {
                                             doc.SendCommand("(command \"-layer\" \"on\" \"L.D.\" \"\" princ)\n");
                                 }
@@ -326,8 +328,8 @@ namespace Impressao
             Variables.description = this.cbDescricaoPDF.SelectedItem.ToString();
             Variables.espessuraLayer = this.cbEspessuraLayer.SelectedItem.ToString();
             Variables.impressora = this.cbImpressora.SelectedItem.ToString();
+            Variables.imprimeCotas = this.cbImprimeCotas.SelectedItem.ToString();
             Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();
-            Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
             Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
         }
 
@@ -358,7 +360,7 @@ namespace Impressao
                     cbImpressora.SelectedItem = "Plotter-A1";
                     break;
                 case "A4-P":
-                    cbImpressora.SelectedItem = "Xerox";
+                    cbImpressora.SelectedItem = "PDF";
                     break;
                 case "A4-L":
                     cbImpressora.SelectedItem = "Xerox";
