@@ -26,7 +26,8 @@ namespace Impressao
 		public static Dictionary<string, string> pranchaPlo = new Dictionary<string, string>()
 		{
 			{ "A1", "\"ISO A1\"" }, { "A2", "\"ISO A2\"" },
-			{ "A3", "\"ISO A3\"" }, { "A4", "\"ISO A4\"" }
+			{ "A3", "\"ISO A3\"" }, { "A4", "\"ISO A4\"" },
+			{ "A0", "\"ISO A0\"" }
 		};
 
 		public static Dictionary<string, string> pranchaXerox = new Dictionary<string, string>()

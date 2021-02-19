@@ -166,7 +166,6 @@ namespace Impressao
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show(ex.Message);
                                     MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
                                 }
                             }
@@ -183,7 +182,7 @@ namespace Impressao
                                         " \"n\" \"y\")\n"
                                     );
                                 }
-                                catch (Exception)
+                                catch (Exception ex)
                                 {
                                     MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
                                 }
@@ -204,7 +203,7 @@ namespace Impressao
                                         " \"n\" \"y\")\n"
                                     );
                                 }
-                                catch (Exception)
+                                catch (Exception ex)
                                 {
                                     MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
                                 }
@@ -222,7 +221,7 @@ namespace Impressao
                                         " \"n\" \"y\")\n"
                                     );
                                 }
-                                catch (Exception)
+                                catch (Exception ex)
                                 {
                                     MessageBox.Show("Não foi possível enviar o comando de plotar em PDF!");
                                 }
@@ -265,7 +264,7 @@ namespace Impressao
                                 Utils.Screening(Variables.espessuraLayer) + " \"y\" \"a\" \"n\" \"n\" \"y\" princ)\n"
                             );
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             MessageBox.Show("Não foi possível enviar o comando de plotar na Impressora (PL/KM)!");
                         }
@@ -298,7 +297,6 @@ namespace Impressao
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
                             MessageBox.Show("Não foi possível enviar os comandos de purge e ativar Layer!");
                         }
                     }
@@ -335,6 +333,15 @@ namespace Impressao
 
         private void cbImpressoraSelectedValueChanged(object sender, EventArgs e)
         {
+            if (cbImpressora.Text == "PDF")
+            {
+                CarregarCbTamanho();
+            }
+            else
+            {
+                    RemoverItemsCbTamanho();
+            }
+
             switch (cbImpressora.Text)
             {
                 case "Plotter-A2":
@@ -368,5 +375,34 @@ namespace Impressao
             }
         }
 
+        private void RemoverItemsCbTamanho()
+        {
+            for (int i = 0; i < cbTamanhoFormato.Items.Count; i++)
+            {
+                if (cbTamanhoFormato.Items[i].ToString() == "A0" || cbTamanhoFormato.Items[i].ToString() == "A3")
+                {
+                    cbTamanhoFormato.Items.RemoveAt(i);
+                }
+            }
+        }
+
+        private void CarregarCbTamanho()
+        {
+
+            cbTamanhoFormato.Items.Clear();
+
+            if (cbImpressora.Text == "PDF")
+            {
+                cbTamanhoFormato.Items.Add("A0");
+            }
+            cbTamanhoFormato.Items.Add("A1");
+            cbTamanhoFormato.Items.Add("A2");
+            if (cbImpressora.Text == "PDF")
+            {
+                cbTamanhoFormato.Items.Add("A3");
+            }
+            cbTamanhoFormato.Items.Add("A4-L");
+            cbTamanhoFormato.Items.Add("A4-P");
+        }
     }
 }
