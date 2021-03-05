@@ -143,9 +143,9 @@ namespace Impressao
 
                     string fileName = Path.GetFileName(element);
                     string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                                                         fileName.Substring(0, fileName.Length - 4);
+                                                         fileName.Substring(0, fileName.LastIndexOf("."));
                     string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                                                           fileName.Split(new string[] { "..." }, StringSplitOptions.None)[0];
+                                                           newFullNameWithoutExtension.Split(new string[] { "..." }, StringSplitOptions.None)[0];
 
                     if (Variables.impressora == "PDF")
                     {
@@ -327,7 +327,7 @@ namespace Impressao
             Variables.espessuraLayer = this.cbEspessuraLayer.SelectedItem.ToString();
             Variables.impressora = this.cbImpressora.SelectedItem.ToString();
             Variables.imprimeCotas = this.cbImprimeCotas.SelectedItem.ToString();
-            Variables.tamanhoFormato = this.cbTamanhoFormato.SelectedItem.ToString();
+            Variables.tamanhoFormato = this.cbTamanhoFormato.Text;
             Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
         }
 
@@ -352,6 +352,8 @@ namespace Impressao
                     break;
                 case "Xerox":
                     cbTamanhoFormato.SelectedItem = "A4-L";
+                    break;
+                case "PDF":
                     break;
             }
         }

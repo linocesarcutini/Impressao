@@ -14,7 +14,6 @@ namespace Impressao
 		private System.Windows.Forms.Button BtnSelectDesenho;
 		private System.Windows.Forms.Button BtnImprimir;
 		private System.Windows.Forms.Button BtnCancelar;
-		private System.Windows.Forms.ComboBox cbTamanhoFormato;
 		private System.Windows.Forms.ComboBox cbEspessuraLayer;
 		private System.Windows.Forms.ComboBox cbImpressora;
 		private System.Windows.Forms.ComboBox cbSalvarDesenhos;
@@ -48,7 +47,6 @@ namespace Impressao
             this.BtnSelectDesenho = new System.Windows.Forms.Button();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.cbTamanhoFormato = new System.Windows.Forms.ComboBox();
             this.cbEspessuraLayer = new System.Windows.Forms.ComboBox();
             this.cbImpressora = new System.Windows.Forms.ComboBox();
             this.cbSalvarDesenhos = new System.Windows.Forms.ComboBox();
@@ -56,6 +54,7 @@ namespace Impressao
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbDescricaoPDF = new System.Windows.Forms.ComboBox();
+            this.cbTamanhoFormato = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -101,7 +100,7 @@ namespace Impressao
             this.BtnSelectDesenho.Location = new System.Drawing.Point(13, 206);
             this.BtnSelectDesenho.Name = "BtnSelectDesenho";
             this.BtnSelectDesenho.Size = new System.Drawing.Size(207, 25);
-            this.BtnSelectDesenho.TabIndex = 6;
+            this.BtnSelectDesenho.TabIndex = 7;
             this.BtnSelectDesenho.Text = "Selecionar desenhos";
             this.BtnSelectDesenho.UseVisualStyleBackColor = true;
             this.BtnSelectDesenho.Click += new System.EventHandler(this.BtnSelectDesenhoClick);
@@ -133,26 +132,6 @@ namespace Impressao
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelarClick);
             // 
-            // cbTamanhoFormato
-            // 
-            this.cbTamanhoFormato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbTamanhoFormato.DropDownHeight = 100;
-            this.cbTamanhoFormato.DropDownWidth = 60;
-            this.cbTamanhoFormato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTamanhoFormato.FormattingEnabled = true;
-            this.cbTamanhoFormato.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.cbTamanhoFormato.IntegralHeight = false;
-            this.cbTamanhoFormato.Items.AddRange(new object[] {
-            "A1",
-            "A2",
-            "A4-L",
-            "A4-P"});
-            this.cbTamanhoFormato.Location = new System.Drawing.Point(134, 24);
-            this.cbTamanhoFormato.Name = "cbTamanhoFormato";
-            this.cbTamanhoFormato.Size = new System.Drawing.Size(85, 21);
-            this.cbTamanhoFormato.TabIndex = 11;
-            this.cbTamanhoFormato.SelectedValueChanged += new System.EventHandler(this.cbTamanhoFormatoSelectedValueChanged);
-            // 
             // cbEspessuraLayer
             // 
             this.cbEspessuraLayer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -173,7 +152,7 @@ namespace Impressao
             this.cbEspessuraLayer.Location = new System.Drawing.Point(134, 53);
             this.cbEspessuraLayer.Name = "cbEspessuraLayer";
             this.cbEspessuraLayer.Size = new System.Drawing.Size(85, 21);
-            this.cbEspessuraLayer.TabIndex = 12;
+            this.cbEspessuraLayer.TabIndex = 2;
             // 
             // cbImpressora
             // 
@@ -192,7 +171,7 @@ namespace Impressao
             this.cbImpressora.Location = new System.Drawing.Point(134, 82);
             this.cbImpressora.Name = "cbImpressora";
             this.cbImpressora.Size = new System.Drawing.Size(85, 21);
-            this.cbImpressora.TabIndex = 13;
+            this.cbImpressora.TabIndex = 3;
             this.cbImpressora.SelectedValueChanged += new System.EventHandler(this.cbImpressoraSelectedValueChanged);
             // 
             // cbSalvarDesenhos
@@ -211,7 +190,7 @@ namespace Impressao
             this.cbSalvarDesenhos.Location = new System.Drawing.Point(134, 111);
             this.cbSalvarDesenhos.Name = "cbSalvarDesenhos";
             this.cbSalvarDesenhos.Size = new System.Drawing.Size(85, 21);
-            this.cbSalvarDesenhos.TabIndex = 15;
+            this.cbSalvarDesenhos.TabIndex = 4;
             // 
             // cbImprimeCotas
             // 
@@ -222,7 +201,7 @@ namespace Impressao
             this.cbImprimeCotas.Location = new System.Drawing.Point(134, 138);
             this.cbImprimeCotas.Name = "cbImprimeCotas";
             this.cbImprimeCotas.Size = new System.Drawing.Size(85, 21);
-            this.cbImprimeCotas.TabIndex = 16;
+            this.cbImprimeCotas.TabIndex = 5;
             // 
             // label1
             // 
@@ -251,7 +230,27 @@ namespace Impressao
             this.cbDescricaoPDF.Location = new System.Drawing.Point(134, 168);
             this.cbDescricaoPDF.Name = "cbDescricaoPDF";
             this.cbDescricaoPDF.Size = new System.Drawing.Size(85, 21);
-            this.cbDescricaoPDF.TabIndex = 18;
+            this.cbDescricaoPDF.TabIndex = 6;
+            // 
+            // cbTamanhoFormato
+            // 
+            this.cbTamanhoFormato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbTamanhoFormato.DropDownHeight = 100;
+            this.cbTamanhoFormato.DropDownWidth = 60;
+            this.cbTamanhoFormato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTamanhoFormato.FormattingEnabled = true;
+            this.cbTamanhoFormato.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.cbTamanhoFormato.IntegralHeight = false;
+            this.cbTamanhoFormato.Items.AddRange(new object[] {
+            "A1",
+            "A2",
+            "A4-L",
+            "A4-P"});
+            this.cbTamanhoFormato.Location = new System.Drawing.Point(133, 22);
+            this.cbTamanhoFormato.Name = "cbTamanhoFormato";
+            this.cbTamanhoFormato.Size = new System.Drawing.Size(85, 21);
+            this.cbTamanhoFormato.TabIndex = 1;
+            this.cbTamanhoFormato.SelectedValueChanged += new System.EventHandler(this.cbTamanhoFormatoSelectedValueChanged);
             // 
             // MainForm
             // 
@@ -259,6 +258,7 @@ namespace Impressao
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancelar;
             this.ClientSize = new System.Drawing.Size(230, 274);
+            this.Controls.Add(this.cbTamanhoFormato);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbDescricaoPDF);
             this.Controls.Add(this.label1);
@@ -266,7 +266,6 @@ namespace Impressao
             this.Controls.Add(this.cbSalvarDesenhos);
             this.Controls.Add(this.cbImpressora);
             this.Controls.Add(this.cbEspessuraLayer);
-            this.Controls.Add(this.cbTamanhoFormato);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.BtnSelectDesenho);
@@ -290,5 +289,6 @@ namespace Impressao
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbDescricaoPDF;
+        private System.Windows.Forms.ComboBox cbTamanhoFormato;
     }
 }
