@@ -406,5 +406,14 @@ namespace Impressao
             cbTamanhoFormato.Items.Add("A4-L");
             cbTamanhoFormato.Items.Add("A4-P");
         }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            if (!Activation.Ativacao())
+            {
+                MessageBox.Show("SEM PERMISSÃO PARA ACESSAR A ROTINA!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
     }
 }

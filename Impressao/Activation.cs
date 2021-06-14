@@ -8,55 +8,34 @@ namespace Impressao
 	/// </summary>
 	public class Activation
 	{
-		public Activation()
-		{
-			string activation = null;
-			string autoCadVersion1 = null;
-			string codAutoCAD = null;
-			string activation1 = null;
+        public static bool Ativacao()
+        {
+            bool ativacao = true;
+            object autocadAtiv;
 
-			RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD\Fuleragem", false);
-			try
-			{
-				activation = rk.GetValue("1").ToString();
-			}
-			catch (Exception)
-			{
-				activation = null;
-			}
+            try
+            {
+                RegistryKey autocad = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD\");
+                object autocadCurver = autocad.GetValue("CurVer");
+                autocad = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD\" + autocadCurver + @"\");
+                object autocadLang = autocad.GetValue("CurVer");
+                autocad = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD\" + autocadCurver +
+                    @"\" + autocadLang + @"\Applications\");
+                autocadAtiv = autocad.GetValue("1");
 
-			RegistryKey rk1 = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD", false);
+            }
+            catch (System.Exception)
+            {
+                ativacao = false;
+                throw;
+            }
 
-			try
-			{
-				autoCadVersion1 = rk1.GetValue("CurVer").ToString();
-				rk1 = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD\" + autoCadVersion1, false);
-				codAutoCAD = rk1.GetValue("CurVer").ToString();
-			}
-			catch (Exception)
-			{
-				Console.WriteLine("Seu computador não possui o AutoCAD instalado!");
-			}
+            if (autocadAtiv == null)
+            {
+                ativacao = false;
+            }
 
-			try
-			{
-				activation1 = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Autodesk\AutoCAD\" + autoCadVersion1 + "\\" +
-					codAutoCAD + "\\Applications", false).GetValue("1").ToString();
-			}
-			catch (Exception)
-			{
-				activation1 = null;
-			}
-
-			if (activation == "1" || activation1 == "1")
-			{
-				Variables.activation = true;
-			}
-			else
-			{
-				Variables.activation = false;
-				Console.WriteLine("Esta API não está ativada. Procure o desenvolvedor!");
-			}
-		}
-	}
+            return ativacao;
+        }
+    }
 }
