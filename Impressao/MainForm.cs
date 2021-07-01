@@ -24,12 +24,25 @@ namespace Impressao
             cbSalvarDesenhos.SelectedItem = leitura.salvarDesenhos;
             cbTamanhoFormato.SelectedItem = leitura.tamanhoFormato;
 
+
+            if (leitura.tagPadrao.ToLower() == "mineiro")
+            {
+                leitura.tagPadrao = "Mineiro";
+                rdBtnMineiro.Checked = true;
+            }
+            else
+            {
+                leitura.tagPadrao = "Brametal";
+                rdBtnBrametal.Checked = true;
+            }
+
             Variables.description = leitura.descricaoNoPDF;
             Variables.espessuraLayer = leitura.espessuraLayer;
             Variables.impressora = leitura.impressora;
             Variables.imprimeCotas = leitura.imprimeCotas;
             Variables.salvarDesenhos = leitura.salvarDesenhos;
             Variables.tamanhoFormato = leitura.tamanhoFormato;
+            Variables.tagPadrao = leitura.tagPadrao;
         }
 
         private void BtnSelectDesenhoClick(object sender, EventArgs e)
@@ -329,6 +342,7 @@ namespace Impressao
             Variables.imprimeCotas = this.cbImprimeCotas.SelectedItem.ToString();
             Variables.tamanhoFormato = this.cbTamanhoFormato.Text;
             Variables.salvarDesenhos = this.cbSalvarDesenhos.SelectedItem.ToString();
+            Variables.tagPadrao = this.rdBtnMineiro.Checked == true ? "Mineiro" : "Brametal";
         }
 
         private void cbImpressoraSelectedValueChanged(object sender, EventArgs e)
@@ -354,6 +368,10 @@ namespace Impressao
                     cbTamanhoFormato.SelectedItem = "A4-L";
                     break;
                 case "PDF":
+                    if (cbTamanhoFormato.Text == "A0" || cbTamanhoFormato.Text == "A4-P")
+                    {
+                        cbTamanhoFormato.SelectedItem = cbTamanhoFormato.Text;
+                    }
                     break;
             }
         }

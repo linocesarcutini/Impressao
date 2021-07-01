@@ -41,7 +41,7 @@ namespace Impressao
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
 
-            LeituraConfig escrita = new LeituraConfig(Variables.description, Variables.espessuraLayer, Variables.impressora, Variables.imprimeCotas, Variables.salvarDesenhos, Variables.tamanhoFormato);
+            LeituraConfig escrita = new LeituraConfig(Variables.description, Variables.espessuraLayer, Variables.impressora, Variables.imprimeCotas, Variables.salvarDesenhos, Variables.tamanhoFormato, Variables.tagPadrao);
         }
     }
 }

@@ -1,26 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<SettingsFile CurrentProfile="(Default)" GeneratedClassNamespace="Impressao" GeneratedClassName="Settings1" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Impressao" GeneratedClassName="Settings1">
+  <Profiles />
   <Settings>
-    <Setting Name="DescriçãoNoPDF" Type="System.String" Scope="User" Roaming="false">
+    <Setting Name="DescriçãoNoPDF" Type="System.String" Scope="User">
       <Value Profile="(Default)">Sim</Value>
     </Setting>
-    <Setting Name="EspessuraLayer" Type="System.String" Scope="User" Roaming="false">
+    <Setting Name="EspessuraLayer" Type="System.String" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="Impressora" Type="System.String" Scope="User" Roaming="false">
+    <Setting Name="Impressora" Type="System.String" Scope="User">
       <Value Profile="(Default)">PDF</Value>
     </Setting>
-    <Setting Name="ImprimeCotas" Type="System.String" Scope="User" Roaming="false">
+    <Setting Name="ImprimeCotas" Type="System.String" Scope="User">
       <Value Profile="(Default)">Sim</Value>
     </Setting>
-    <Setting Name="SalvarDesenhos" Type="System.String" Scope="User" Roaming="false">
+    <Setting Name="SalvarDesenhos" Type="System.String" Scope="User">
       <Value Profile="(Default)">Não</Value>
     </Setting>
-    <Setting Name="TamanhoFormato" Type="System.String" Scope="User" Roaming="false">
+    <Setting Name="TamanhoFormato" Type="System.String" Scope="User">
       <Value Profile="(Default)">A0</Value>
+    </Setting>
+    <Setting Name="TagPadrao" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mineiro</Value>
     </Setting>
   </Settings>
 </SettingsFile>

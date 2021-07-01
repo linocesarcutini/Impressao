@@ -55,6 +55,10 @@ namespace Impressao
             this.label5 = new System.Windows.Forms.Label();
             this.cbDescricaoPDF = new System.Windows.Forms.ComboBox();
             this.cbTamanhoFormato = new System.Windows.Forms.ComboBox();
+            this.rdBtnMineiro = new System.Windows.Forms.RadioButton();
+            this.rdBtnBrametal = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -96,8 +100,9 @@ namespace Impressao
             // BtnSelectDesenho
             // 
             this.BtnSelectDesenho.AllowDrop = true;
+            this.BtnSelectDesenho.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnSelectDesenho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSelectDesenho.Location = new System.Drawing.Point(13, 206);
+            this.BtnSelectDesenho.Location = new System.Drawing.Point(12, 231);
             this.BtnSelectDesenho.Name = "BtnSelectDesenho";
             this.BtnSelectDesenho.Size = new System.Drawing.Size(207, 25);
             this.BtnSelectDesenho.TabIndex = 7;
@@ -111,7 +116,7 @@ namespace Impressao
             // 
             this.BtnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnImprimir.Location = new System.Drawing.Point(119, 237);
+            this.BtnImprimir.Location = new System.Drawing.Point(118, 262);
             this.BtnImprimir.Name = "BtnImprimir";
             this.BtnImprimir.Size = new System.Drawing.Size(100, 25);
             this.BtnImprimir.TabIndex = 8;
@@ -124,7 +129,7 @@ namespace Impressao
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(12, 237);
+            this.BtnCancelar.Location = new System.Drawing.Point(11, 262);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(100, 25);
             this.BtnCancelar.TabIndex = 9;
@@ -252,12 +257,44 @@ namespace Impressao
             this.cbTamanhoFormato.TabIndex = 1;
             this.cbTamanhoFormato.SelectedValueChanged += new System.EventHandler(this.cbTamanhoFormatoSelectedValueChanged);
             // 
+            // rdBtnMineiro
+            // 
+            this.rdBtnMineiro.AutoSize = true;
+            this.rdBtnMineiro.Checked = true;
+            this.rdBtnMineiro.Location = new System.Drawing.Point(37, 7);
+            this.rdBtnMineiro.Name = "rdBtnMineiro";
+            this.rdBtnMineiro.Size = new System.Drawing.Size(59, 17);
+            this.rdBtnMineiro.TabIndex = 20;
+            this.rdBtnMineiro.TabStop = true;
+            this.rdBtnMineiro.Text = "Mineiro";
+            this.rdBtnMineiro.UseVisualStyleBackColor = true;
+            // 
+            // rdBtnBrametal
+            // 
+            this.rdBtnBrametal.AutoSize = true;
+            this.rdBtnBrametal.Location = new System.Drawing.Point(131, 7);
+            this.rdBtnBrametal.Name = "rdBtnBrametal";
+            this.rdBtnBrametal.Size = new System.Drawing.Size(66, 17);
+            this.rdBtnBrametal.TabIndex = 21;
+            this.rdBtnBrametal.Text = "Brametal";
+            this.rdBtnBrametal.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rdBtnBrametal);
+            this.panel1.Controls.Add(this.rdBtnMineiro);
+            this.panel1.Location = new System.Drawing.Point(0, 195);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(230, 30);
+            this.panel1.TabIndex = 22;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancelar;
-            this.ClientSize = new System.Drawing.Size(230, 274);
+            this.ClientSize = new System.Drawing.Size(230, 296);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbTamanhoFormato);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbDescricaoPDF);
@@ -282,6 +319,8 @@ namespace Impressao
             this.Text = "Impressao";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -291,5 +330,8 @@ namespace Impressao
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbDescricaoPDF;
         private System.Windows.Forms.ComboBox cbTamanhoFormato;
+        private System.Windows.Forms.RadioButton rdBtnMineiro;
+        private System.Windows.Forms.RadioButton rdBtnBrametal;
+        private System.Windows.Forms.Panel panel1;
     }
 }

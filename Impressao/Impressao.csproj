@@ -75,6 +75,7 @@
     <Compile Include="Settings1.Designer.cs">
       <DependentUpon>Settings1.settings</DependentUpon>
       <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Variables.cs" />

@@ -6,7 +6,7 @@ namespace Impressao
 	public static class Variables
 	{
 		public static string imprimeCotas, tamanhoFormato, espessuraLayer, impressora,
-			diretorioPDF, salvarDesenhos, description;
+			diretorioPDF, salvarDesenhos, description, tagPadrao;
 
 		public static bool activation;
 
@@ -44,7 +44,7 @@ namespace Impressao
 			{ "Xerox", "\"Xerox\"" }
         };
 
-		public static Dictionary<string, string> espessura = new Dictionary<string, string>()
+		public static Dictionary<string, string> espessuraMineiro = new Dictionary<string, string>()
 		{
 			{ "100","\"Engetower 100%.ctb\"" },
 			{ "87.5","\"Engetower 87.5%.ctb\"" },
@@ -53,6 +53,17 @@ namespace Impressao
 			{ "50","\"Engetower 50%.ctb\"" },
 			{ "37.5","\"Engetower 37.5%.ctb\"" },
 			{ "25","\"Engetower 25%.ctb\"" }
+		};
+
+		public static Dictionary<string, string> espessuraBrametal = new Dictionary<string, string>()
+		{
+			{ "100","\"Brametal 100%.ctb\"" },
+			{ "87.5","\"Brametal 87.5%.ctb\"" },
+			{ "75","\"Brametal 75%.ctb\"" },
+			{ "62.5","\"Brametal 62.5%.ctb\"" },
+			{ "50","\"Brametal 50%.ctb\"" },
+			{ "37.5","\"Brametal 37.5%.ctb\"" },
+			{ "25","\"Brametal 25%.ctb\"" }
 		};
 	}
 }
