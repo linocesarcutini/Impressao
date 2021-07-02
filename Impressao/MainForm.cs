@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 using Autodesk.AutoCAD.Interop;
 using Autodesk.AutoCAD.Interop.Common;
 
-
 namespace Impressao
 {
     public partial class MainForm : Form
@@ -146,19 +145,21 @@ namespace Impressao
                     doc = acApp.Documents.Open(element);
                     AcadModelSpace modelSpace = doc.ModelSpace;
 
+                    string pathDesenhoAtual = Path.GetDirectoryName(element) + @"\99 ImpressaoEmPDF";
 
                     // For saiving PDF with or without description
                     // Criando a pasta ImpressaoEmPDF caso não exista
-                    if (!Directory.Exists("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/"))
+                    if (!Directory.Exists(pathDesenhoAtual))
                     {
-                        Directory.CreateDirectory("C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/");
+                        Directory.CreateDirectory(pathDesenhoAtual);
                     }
 
                     string fileName = Path.GetFileName(element);
-                    string newFullNameWithoutExtension = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                                                         fileName.Substring(0, fileName.LastIndexOf("."));
-                    string newFullNameWithoutDescription = "C:/Users/" + Environment.UserName + "/Documents/ImpressaoEmPDF/" +
-                                                           newFullNameWithoutExtension.Split(new string[] { "..." }, StringSplitOptions.None)[0];
+                    string newFullNameWithoutExtension = pathDesenhoAtual + @"\" +fileName.Substring(0, fileName.LastIndexOf("."));
+                    string newFullNameWithoutDescription = newFullNameWithoutExtension.Split(new string[] { "..." }, StringSplitOptions.None)[0];
+
+                    newFullNameWithoutExtension = newFullNameWithoutExtension.Replace(@"\", @"\\");
+                    newFullNameWithoutDescription = newFullNameWithoutDescription.Replace(@"\", @"\\");
 
                     if (Variables.impressora == "PDF")
                     {
