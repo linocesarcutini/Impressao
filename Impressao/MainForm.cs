@@ -146,23 +146,22 @@ namespace Impressao
                     AcadModelSpace modelSpace = doc.ModelSpace;
 
                     string pathDesenhoAtual = Path.GetDirectoryName(element) + @"\99 ImpressaoEmPDF";
-
-                    // For saiving PDF with or without description
-                    // Criando a pasta ImpressaoEmPDF caso não exista
-                    if (!Directory.Exists(pathDesenhoAtual))
-                    {
-                        Directory.CreateDirectory(pathDesenhoAtual);
-                    }
-
                     string fileName = Path.GetFileName(element);
                     string newFullNameWithoutExtension = pathDesenhoAtual + @"\" +fileName.Substring(0, fileName.LastIndexOf("."));
-                    string newFullNameWithoutDescription = newFullNameWithoutExtension.Split(new string[] { "..." }, StringSplitOptions.None)[0];
+                    string newFullNameWithoutDescription = newFullNameWithoutExtension.Split(new string[] { "..." }, StringSplitOptions.None)[0];  // For saiving PDF with or without description
 
                     newFullNameWithoutExtension = newFullNameWithoutExtension.Replace(@"\", @"\\");
                     newFullNameWithoutDescription = newFullNameWithoutDescription.Replace(@"\", @"\\");
 
                     if (Variables.impressora == "PDF")
                     {
+
+                        // Criando a pasta ImpressaoEmPDF caso não exista
+                        if (!Directory.Exists(pathDesenhoAtual))
+                        {
+                            Directory.CreateDirectory(pathDesenhoAtual);
+                        }
+
                         if (Variables.description == "Sim")
                         {
                             if (Variables.tamanhoFormato == "A4-P")
