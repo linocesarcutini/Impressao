@@ -102,32 +102,27 @@ namespace Impressao
 
         private void BtnImprimirClick(object sender, EventArgs e)
         {
+            SetVariables();
+
             if (Variables.arquivos == null)
             {
-                SetVariables();
-
                 MessageBox.Show("Os documentos não foram selecionados!");
             }
             else
             {
-                SetVariables();
-
-                string progId = "AutoCAD.Application";
-                dynamic acApp = null;
+                const string progId = "AutoCAD.Application";
+                AcadApplication acApp = null;
 
                 try
                 {
-                    acApp = Marshal.GetActiveObject(progId);
+                    acApp = (AcadApplication)Marshal.GetActiveObject(progId);
                 }
                 catch
                 {
                     try
                     {
                         Type t = Type.GetTypeFromProgID(progId);
-                        acApp = Activator.CreateInstance(t);
-
-                        if (acApp != null)
-                            acApp.Visible = true;
+                        acApp = (AcadApplication)Activator.CreateInstance(t, true);
                     }
                     catch
                     {
@@ -135,15 +130,41 @@ namespace Impressao
                     }
                 }
 
+                if (acApp != null)
+                {
+                    System.Threading.Thread.Sleep(500);
+                    acApp.Visible = true;
+                }
+
                 int contDesenho = 1;
 
                 foreach (var element in Variables.arquivos)
                 {
-                    System.Threading.Thread.Sleep(2500);
 
                     AcadDocument doc = null;
-                    doc = acApp.Documents.Open(element);
-                    AcadModelSpace modelSpace = doc.ModelSpace;
+                    AcadModelSpace modelSpace = null;
+
+                    try
+                    {
+                        doc = acApp.Documents.Open(element);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("1 " + ex.Message + "\nRelate este erro ao desenvolvedor!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
+
+                    System.Threading.Thread.Sleep(2000);
+
+                    try
+                    {
+                        modelSpace = doc.ModelSpace;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("2 " + ex.Message + "\nRelate este erro ao desenvolvedor!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
 
                     string pathDesenhoAtual = Path.GetDirectoryName(element) + @"\99 ImpressaoEmPDF";
                     string fileName = Path.GetFileName(element);
